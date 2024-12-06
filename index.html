@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Advent Calendar 2024</title>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      html {
+        background-color: #1a1a1a;
+      }
+      .advent-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .project-card {
+        background: #2d2d2d;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card.coming-soon {
+        background: #1f2937;
+        cursor: default;
+      }
+
+      .project-card.coming-soon:hover {
+        transform: none;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Custom sizes for large and medium cards */
+      .project-card.large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .project-card.medium {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      /* Handle end of row expansion */
+      .project-card:last-child:nth-child(odd) {
+        grid-column: span 2;
+      }
+
+      .christmas-tree {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        opacity: 0.8;
+        transform: rotate(5deg);
+      }
+
+      .snowflake {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+        opacity: 0.6;
+      }
+
+      .gift {
+        position: absolute;
+        top: 25px;
+        right: 10px;
+        font-size: 1.3rem;
+        opacity: 0.7;
+        transform: translateY(-50%);
+      }
+
+      .candy-cane {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        font-size: 1.4rem;
+        opacity: 0.7;
+        transform: rotate(-45deg);
+      }
+
+      .sparkles {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.2rem;
+        opacity: 0.6;
+      }
+
+      @media (max-width: 768px) {
+        .advent-grid {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .project-card.large,
+        .project-card.medium,
+        .project-card:last-child:nth-child(odd) {
+          grid-column: span 1;
+          grid-row: auto;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .advent-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @keyframes working {
+        0%,
+        100% {
+          opacity: 0.8;
+          background: #1e293b;
+        }
+        50% {
+          opacity: 1;
+          background: #1f2937;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 1;
+        }
+      }
+
+      @keyframes typing {
+        0%,
+        100% {
+          content: "Coding";
+        }
+        33% {
+          content: "Coding.";
+        }
+        66% {
+          content: "Coding..";
+        }
+      }
+
+      .working-on-it {
+        position: relative;
+        animation: working 5s ease-in-out infinite;
+        border: 2px solid #334155;
+      }
+
+      .working-on-it::before {
+        content: "Coding";
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #e5e7eb;
+        animation: typing 3s steps(1) infinite;
+      }
+
+      .working-on-it::after {
+        content: "⚡";
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.2rem;
+        animation: pulse 4s ease-in-out infinite;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-900 min-h-screen"
+    x-data="{ currentDay: new Date().getDate() }"
+  >
+    <div class="container mx-auto px-4 py-16">
+      <h1 class="text-4xl font-bold mb-8 text-center text-white">
+        🎄 Coding Advent Calendar 2024
+      </h1>
+
+      <div class="advent-grid">
+        <!-- Example large card -->
+        <a
+          href="https://amortify.manuelalferez.com/"
+          class="project-card large"
+          :class="{ 'working-on-it': currentDay === 1 }"
+        >
+          <span class="christmas-tree">🎄</span>
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-white">1</span>
+            <span class="ml-2 text-gray-300 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-white">Amortify</h2>
+          <p class="text-gray-300">
+            A real estate investment calculator that helps you analyze potential
+            returns and make informed decisions about property investments.
+          </p>
+        </a>
+
+        <!-- Example medium card -->
+        <a
+          href="https://spotify-wrapped.manuelalferez.com/"
+          class="project-card medium"
+          :class="{ 'working-on-it': currentDay === 2 }"
+        >
+          <span class="snowflake">❄️</span>
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-white">2</span>
+            <span class="ml-2 text-gray-300 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-white">Spotify Wrapped</h2>
+          <p class="text-gray-300">
+            Visualize your Spotify listening habits with detailed insights about
+            your favorite artists, albums, and daily music consumption patterns.
+          </p>
+        </a>
+
+        <!-- Small cards -->
+        <a
+          href="https://rome-in-2-days.manuelalferez.com/"
+          class="project-card"
+          :class="{ 'working-on-it': currentDay === 3 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-white">3</span>
+            <span class="ml-2 text-gray-300 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-white">Rome in 2 Days</h2>
+          <p class="text-gray-300">
+            Interactive guide with maps, tickets and weather forecasts to help
+            you plan the perfect 2-day trip to Rome's iconic landmarks.
+          </p>
+          <span class="gift">🎁</span>
+        </a>
+
+        <a
+          href="https://framify-liart.vercel.app"
+          class="project-card"
+          :class="{ 'working-on-it': currentDay === 5 }"
+        >
+          <span class="candy-cane">🍬</span>
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-white">4</span>
+            <span class="ml-2 text-gray-300 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-white">Framify</h2>
+          <p class="text-gray-300">
+            Simple online tool to add elegant frames to your photos. Choose a
+            style, upload your image, and download your enhanced picture in
+            seconds.
+          </p>
+        </a>
+
+        <a
+          href="https://coding-advent-24.manuelalferez.com/"
+          class="project-card"
+          :class="{ 'working-on-it': currentDay === 4 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-white">5</span>
+            <span class="ml-2 text-gray-300 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-white">Coding Advent</h2>
+          <p class="text-gray-300">
+            An advent calendar showcasing 24 days of coding projects, featuring
+            web apps.
+          </p>
+        </a>
+
+        <div
+          class="project-card coming-soon row-span-2"
+          :class="{ 'working-on-it': currentDay === 6 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">6</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 7 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="sparkles">✨</span>
+            <span class="text-6xl font-bold text-gray-400">7</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon col-span-2 row-span-2"
+          :class="{ 'working-on-it': currentDay === 8 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">8</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 9 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">9</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 10 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">10</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 11 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">11</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon row-span-2"
+          :class="{ 'working-on-it': currentDay === 12 }"
+        >
+          <div class="flex items-start mb-4">
+            <div class="candy-cane">🍬</div>
+            <span class="text-6xl font-bold text-gray-400">12</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon col-span-2"
+          :class="{ 'working-on-it': currentDay === 13 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">13</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 14 }"
+        >
+          <div class="flex items-start mb-4">
+            <div class="christmas-tree">🎄</div>
+            <span class="text-6xl font-bold text-gray-400">14</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 15 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">15</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 16 }"
+        >
+          <div class="flex items-start mb-4">
+            <div class="sparkles">✨</div>
+            <span class="text-6xl font-bold text-gray-400">16</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon col-span-2"
+          :class="{ 'working-on-it': currentDay === 17 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">17</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon col-span-2 row-span-2"
+          :class="{ 'working-on-it': currentDay === 18 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">18</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 19 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="snowflake">❄️</span>
+            <span class="text-6xl font-bold text-gray-400">19</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 20 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">20</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 21 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">21</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon col-span-2"
+          :class="{ 'working-on-it': currentDay === 22 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="gift">🎁</span>
+            <span class="text-6xl font-bold text-gray-400">22</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon"
+          :class="{ 'working-on-it': currentDay === 23 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="text-6xl font-bold text-gray-400">23</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+
+        <div
+          class="project-card coming-soon col-span-2"
+          :class="{ 'working-on-it': currentDay === 24 }"
+        >
+          <div class="flex items-start mb-4">
+            <span class="christmas-tree">🎄</span>
+            <span class="text-6xl font-bold text-gray-400">24</span>
+            <span class="ml-2 text-gray-400 mt-2">December</span>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-400">Future project will be revealed here</p>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <footer
+    class="bg-gray-900 text-white p-6 text-center mt-6 mb-6 mx-6 rounded-xl border border-gray-700 shadow-sm"
+  >
+    <div>
+      <img src="logo.png" alt="Logo" class="h-[60px] mx-auto mb-4" />
+      <p class="font-medium my-2">
+        Created by
+        <a
+          href="https://www.manuelalferez.com/"
+          target="_blank"
+          class="text-white underline hover:opacity-70 transition-opacity duration-200"
+          rel="noopener noreferrer"
+        >
+          Manuel Alférez
+        </a>
+      </p>
+      <p class="my-2 text-gray-400">Copyright © 2024 - All rights reserved</p>
+    </div>
+    <div class="mt-6 flex justify-center">
+      <a
+        href="https://twitter.com/manuelalferez"
+        target="_blank"
+        class="text-gray-400 hover:text-white transition-colors duration-200"
+        rel="noopener noreferrer"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </footer>
+</html>
