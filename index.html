@@ -112,31 +112,24 @@
 
       @media (max-width: 768px) {
         .advent-grid {
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          grid-template-columns: 1fr;
+          gap: 1rem;
         }
 
         .project-card.large,
-        .project-card.medium,
+        .project-card.medium {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .project-card[class*="col-span-"],
+        .project-card[class*="row-span-"] {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
         .project-card:last-child:nth-child(odd) {
           grid-column: span 1;
-          grid-row: auto;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .advent-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      @keyframes working {
-        0%,
-        100% {
-          opacity: 0.8;
-          background: #1e293b;
-        }
-        50% {
-          opacity: 1;
-          background: #1f2937;
         }
       }
 
@@ -144,42 +137,30 @@
         0%,
         100% {
           transform: scale(1);
-          opacity: 0.8;
+          box-shadow: 0 0 0 0 rgba(51, 65, 85, 0.4);
         }
         50% {
-          transform: scale(1.05);
-          opacity: 1;
-        }
-      }
-
-      @keyframes typing {
-        0%,
-        100% {
-          content: "Coding";
-        }
-        33% {
-          content: "Coding.";
-        }
-        66% {
-          content: "Coding..";
+          transform: scale(1.01);
+          box-shadow: 0 0 0 15px rgba(51, 65, 85, 0);
         }
       }
 
       .working-on-it {
         position: relative;
-        animation: working 5s ease-in-out infinite;
         border: 2px solid #334155;
+        min-height: 150px;
+        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
 
       .working-on-it::before {
-        content: "Coding";
+        content: "";
         position: absolute;
         bottom: 1rem;
         left: 1rem;
         font-size: 1.1rem;
         font-weight: 600;
-        color: #e5e7eb;
-        animation: typing 3s steps(1) infinite;
+        color: #ffffff;
+        z-index: 3;
       }
 
       .working-on-it::after {
@@ -188,8 +169,31 @@
         bottom: 1rem;
         right: 1rem;
         font-size: 1.2rem;
-        animation: pulse 4s ease-in-out infinite;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        z-index: 3;
+      }
+
+      .working-on-it > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Add overlay */
+      .working-on-it {
+        position: relative;
+        transition: all 0.5s ease;
+      }
+
+      .working-on-it::after {
+        content: "⚡";
+        z-index: 3;
+      }
+
+      .working-on-it > *::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
       }
     </style>
   </head>
@@ -533,7 +537,7 @@
     class="bg-gray-900 text-white p-6 text-center mt-6 mb-6 mx-6 rounded-xl border border-gray-700 shadow-sm"
   >
     <div>
-      <img src="logo.png" alt="Logo" class="h-[60px] mx-auto mb-4" />
+      <p class="text-5xl mb-4">🎄</p>
       <p class="font-medium my-2">
         Created by
         <a
