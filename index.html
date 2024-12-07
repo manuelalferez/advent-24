@@ -9,10 +9,13 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap" rel="stylesheet">
     <style>
       body {
         background-color: #1a1a1a;
         color: #ffffff;
+        font-family: 'Cabinet Grotesk', sans-serif;
+        font-weight: 500;
       }
       html {
         background-color: #1a1a1a;
@@ -34,6 +37,7 @@
         height: 100%;
         position: relative;
         overflow: hidden;
+        font-weight: 500;
       }
 
       .project-card:hover {
@@ -166,7 +170,7 @@
         bottom: 1rem;
         left: 1rem;
         font-size: 1.1rem;
-        font-weight: 600;
+        font-weight: 500;
         color: #ffffff;
         z-index: 3;
       }
@@ -207,13 +211,13 @@
           class="project-card large"
           :class="{ 'working-on-it': currentDay === 1 }"
         >
-          <span class="christmas-tree">🎄</span>
-          <div class="flex items-start mb-4">
+          <span class="christmas-tree text-xl">🎄</span>
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-white">1</span>
-            <span class="ml-2 text-gray-300 mt-2">December</span>
+            <span class="ml-3 text-gray-300 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-white">Amortify</h2>
-          <p class="text-gray-300">
+          <h2 class="text-3xl font-semibold mb-4 text-white">Amortify</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">
             A real estate investment calculator that helps you analyze potential
             returns and make informed decisions about property investments.
           </p>
@@ -226,12 +230,12 @@
           :class="{ 'working-on-it': currentDay === 2 }"
         >
           <span class="snowflake">❄️</span>
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-white">2</span>
-            <span class="ml-2 text-gray-300 mt-2">December</span>
+            <span class="ml-3 text-gray-300 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-white">Spotify Wrapped</h2>
-          <p class="text-gray-300">
+          <h2 class="text-3xl font-semibold mb-4 text-white">Spotify Wrapped</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">
             Visualize your Spotify listening habits with detailed insights about
             your favorite artists, albums, and daily music consumption patterns.
           </p>
@@ -243,12 +247,12 @@
           class="project-card"
           :class="{ 'working-on-it': currentDay === 3 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-white">3</span>
-            <span class="ml-2 text-gray-300 mt-2">December</span>
+            <span class="ml-3 text-gray-300 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-white">Rome in 2 Days</h2>
-          <p class="text-gray-300">
+          <h2 class="text-3xl font-semibold mb-4 text-white">Rome in 2 Days</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">
             Interactive guide with maps, tickets and weather forecasts to help
             you plan the perfect 2-day trip to Rome's iconic landmarks.
           </p>
@@ -261,12 +265,12 @@
           :class="{ 'working-on-it': currentDay === 5 }"
         >
           <span class="candy-cane">🍬</span>
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-white">4</span>
-            <span class="ml-2 text-gray-300 mt-2">December</span>
+            <span class="ml-3 text-gray-300 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-white">Framify</h2>
-          <p class="text-gray-300">
+          <h2 class="text-3xl font-semibold mb-4 text-white">Framify</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">
             Simple online tool to add elegant frames to your photos. Choose a
             style, upload your image, and download your enhanced picture in
             seconds.
@@ -278,12 +282,12 @@
           class="project-card"
           :class="{ 'working-on-it': currentDay === 4 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-white">5</span>
-            <span class="ml-2 text-gray-300 mt-2">December</span>
+            <span class="ml-3 text-gray-300 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-white">Coding Advent</h2>
-          <p class="text-gray-300">
+          <h2 class="text-3xl font-semibold mb-4 text-white">Coding Advent</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">
             An advent calendar showcasing 24 days of coding projects, featuring
             web apps.
           </p>
@@ -293,235 +297,235 @@
           class="project-card coming-soon row-span-2"
           :class="{ 'working-on-it': currentDay === 6 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">6</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 7 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="sparkles">✨</span>
             <span class="text-6xl font-bold text-gray-400">7</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon col-span-2 row-span-2"
           :class="{ 'working-on-it': currentDay === 8 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">8</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 9 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">9</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 10 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">10</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 11 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">11</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon row-span-2"
           :class="{ 'working-on-it': currentDay === 12 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <div class="candy-cane">🍬</div>
             <span class="text-6xl font-bold text-gray-400">12</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon col-span-2"
           :class="{ 'working-on-it': currentDay === 13 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">13</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 14 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <div class="christmas-tree">🎄</div>
             <span class="text-6xl font-bold text-gray-400">14</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 15 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">15</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 16 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <div class="sparkles">✨</div>
             <span class="text-6xl font-bold text-gray-400">16</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon col-span-2"
           :class="{ 'working-on-it': currentDay === 17 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">17</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon col-span-2 row-span-2"
           :class="{ 'working-on-it': currentDay === 18 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">18</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 19 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="snowflake">❄️</span>
             <span class="text-6xl font-bold text-gray-400">19</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 20 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">20</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 21 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">21</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon col-span-2"
           :class="{ 'working-on-it': currentDay === 22 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="gift">🎁</span>
             <span class="text-6xl font-bold text-gray-400">22</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon"
           :class="{ 'working-on-it': currentDay === 23 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="text-6xl font-bold text-gray-400">23</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
 
         <div
           class="project-card coming-soon col-span-2"
           :class="{ 'working-on-it': currentDay === 24 }"
         >
-          <div class="flex items-start mb-4">
+          <div class="flex items-start mb-6">
             <span class="christmas-tree">🎄</span>
             <span class="text-6xl font-bold text-gray-400">24</span>
-            <span class="ml-2 text-gray-400 mt-2">December</span>
+            <span class="ml-3 text-gray-400 mt-2 text-xl">December</span>
           </div>
-          <h2 class="text-xl font-semibold mb-2 text-gray-400">Coming Soon</h2>
-          <p class="text-gray-400">Future project will be revealed here</p>
+          <h2 class="text-3xl font-semibold mb-4 text-gray-400">Coming Soon</h2>
+          <p class="text-gray-300 text-lg leading-relaxed">Future project will be revealed here</p>
         </div>
       </div>
     </div>
@@ -564,6 +568,9 @@
           ></path>
         </svg>
       </a>
+    </div>
+  </footer>
+</html>
     </div>
   </footer>
 </html>
