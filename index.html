@@ -95,8 +95,8 @@
 
       .candy-cane {
         position: absolute;
-        bottom: 15px;
-        left: 15px;
+        bottom: 10px;
+        right: 10px;
         font-size: 1.4rem;
         opacity: 0.7;
         transform: rotate(-45deg);
@@ -152,6 +152,14 @@
         animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
 
+      .working-on-it .christmas-tree,
+      .working-on-it .snowflake,
+      .working-on-it .gift,
+      .working-on-it .candy-cane,
+      .working-on-it .sparkles {
+        display: none;
+      }
+
       .working-on-it::before {
         content: "";
         position: absolute;
@@ -175,25 +183,6 @@
       .working-on-it > * {
         position: relative;
         z-index: 1;
-      }
-
-      /* Add overlay */
-      .working-on-it {
-        position: relative;
-        transition: all 0.5s ease;
-      }
-
-      .working-on-it::after {
-        content: "⚡";
-        z-index: 3;
-      }
-
-      .working-on-it > *::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        pointer-events: none;
       }
     </style>
   </head>
